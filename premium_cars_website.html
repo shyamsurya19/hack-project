@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Cars | Luxury Car Rentals</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    color: #222;
+}
+
+/* HEADER */
+
+header {
+    background: #111827;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #2563eb, #0f172a);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 45px 7%;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+/* CATEGORY */
+
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+}
+
+.category-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* MODELS */
+
+#modelsSection {
+    display: none;
+}
+
+.models-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.car-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    transition: 0.3s;
+}
+
+.car-card:hover {
+    transform: translateY(-7px);
+}
+
+.car-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.car-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.car-info h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.price {
+    font-size: 19px;
+    font-weight: bold;
+    color: #16a34a;
+    margin-bottom: 15px;
+}
+
+.rent-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.rent-btn:hover {
+    background: #1d4ed8;
+}
+
+/* FORMS */
+
+#bookingSection,
+#paymentSection,
+#successSection {
+    display: none;
+}
+
+.form-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.booking-summary {
+    background: #eff6ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    line-height: 1.9;
+}
+
+.delivery-box {
+    background: #fff7ed;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.delivery-charge {
+    color: #ea580c;
+    font-weight: bold;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background: #16a34a;
+    color: white;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #15803d;
+}
+
+/* SUCCESS */
+
+.success-box {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+}
+
+.success-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.success-box h2 {
+    color: #16a34a;
+    margin-bottom: 15px;
+}
+
+.success-details {
+    background: #f0fdf4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.9;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+
+    .category-container,
+    .models-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+    }
+
+    .category-container,
+    .models-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+
+/* ADDED: PREMIUM LOOK, COMPARISON, SAFETY AND BUSINESS TIPS */
+body {
+  color:#172033;
+  background: linear-gradient(135deg, rgba(7,18,38,.94), rgba(17,48,86,.88)),
+              url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85") center/cover fixed;
+  background-attachment:fixed;
+}
+/* Light glass-like content panels over the car-photo background */
+section:not(.hero) { background:rgba(245,248,252,.94); }
+.hero {
+  position:relative;
+  overflow:hidden;
+  min-height:390px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(90deg,rgba(3,12,28,.88),rgba(6,25,48,.48)),
+             url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=90") center 55%/cover no-repeat;
+}
+.hero h2 { text-shadow:0 4px 18px rgba(0,0,0,.45); }
+.hero p { text-shadow:0 2px 10px rgba(0,0,0,.55); }
+.hero::after {
+  content:"PREMIUM";
+  position:absolute;
+  right:3%; bottom:5%;
+  font-size:clamp(50px,11vw,140px);
+  font-weight:900; letter-spacing:8px;
+  color:rgba(255,255,255,.045);
+  pointer-events:none;
+}
+.category-card,.car-card,.form-box,.success-box,.compare-box,.policy-box,.tips-box {
+  border:1px solid #dbeafe;
+  box-shadow:0 8px 25px rgba(15,23,42,.08);
+}
+.car-card img { display:block; }
+.compare-box,.policy-box,.tips-box {
+  max-width:1100px; margin:20px auto; padding:24px;
+  background:#fff; border-radius:15px;
+}
+.compare-table-wrap { overflow-x:auto; }
+.compare-table { width:100%; border-collapse:collapse; min-width:520px; }
+.compare-table th,.compare-table td { padding:12px; border-bottom:1px solid #e2e8f0; text-align:left; }
+.compare-table th { background:#eff6ff; }
+.compare-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.compare-btn,.secondary-btn {
+  background:#0f766e; color:white; border:0; border-radius:7px;
+  padding:9px 13px; cursor:pointer; margin:4px;
+}
+.secondary-btn { background:#475569; }
+.policy-box h3,.tips-box h3 { color:#12366d; margin:14px 0 7px; }
+.policy-box li,.tips-box li { margin:8px 0 8px 22px; line-height:1.55; }
+.notice { background:#fff7ed; border-left:4px solid #f97316; padding:13px; border-radius:7px; line-height:1.6; }
+.safe-check { display:flex; gap:10px; align-items:flex-start; margin:16px 0; line-height:1.5; }
+.safe-check input { width:auto; margin-top:4px; }
+.medical-banner {
+  margin:0; padding:18px 7%;
+  color:#fff; text-align:center;
+  background:linear-gradient(100deg,#075985,#0f766e,#164e63);
+  border-top:1px solid rgba(255,255,255,.25);
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
+.medical-banner a { color:#fff; font-weight:800; text-decoration:underline; text-underline-offset:4px; }
+.medical-box {
+  max-width:1100px; margin:20px auto; padding:26px;
+  border-radius:18px; background:#fff; border:1px solid #bae6fd;
+  box-shadow:0 12px 35px rgba(8,47,73,.12); line-height:1.65;
+}
+.medical-box h3 { color:#075985; margin:16px 0 7px; }
+.medical-box li { margin:7px 0 7px 22px; }
+.medical-highlight { background:#ecfeff; border-left:5px solid #0891b2; padding:15px; border-radius:9px; margin:14px 0; }
+.medical-warning { background:#fff7ed; border-left:5px solid #ea580c; padding:15px; border-radius:9px; margin:14px 0; }
+@media(max-width:600px) {
+  .compare-box,.policy-box,.tips-box { padding:16px; }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>👑 Premium Cars</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cars">Cars</a>
+        <a href="#bookingSection">Booking</a>
+        <a href="#compareSection">Compare</a>
+        <a href="#medicalProtection">Medical Cover</a>
+        <a href="#safetySection">Safety Policy</a>
+        <a href="#paymentSection">Payment</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <h2>Experience Luxury. Travel with Confidence.</h2>
+
+    <p>
+        Explore our exclusive fleet and enjoy premium accident and passenger protection.
+    </p>
+
+</section>
+
+<!-- SEPARATE CUSTOMER MEDICAL-PROTECTION BAR -->
+<div class="medical-banner">
+  <strong>🛡️ PREMIUM ACCIDENT & PASSENGER PROTECTION</strong>
+  <span> — The company handles covered vehicle repair and passenger medical costs.</span>
+  <a href="#medicalProtection"> View Protection Policy</a>
+</div>
+
+<!-- CAR CATEGORIES -->
+
+<section id="cars">
+
+    <h2>Choose Car Category</h2>
+
+    <div class="category-container">
+
+        <div
+            class="category-card"
+            onclick="showModels('sedan')">
+
+            <div class="category-icon">🚘</div>
+
+            <h3>Sedan</h3>
+
+            <p>
+                Comfortable family and luxury cars
+            </p>
+
+        </div>
+
+
+        <div
+            class="category-card"
+            onclick="showModels('suv')">
+
+            <div class="category-icon">🚙</div>
+
+            <h3>SUV</h3>
+
+            <p>
+                Powerful and spacious vehicles
+            </p>
+
+        </div>
+
+
+        <div
+            class="category-card"
+            onclick="showModels('convertible')">
+
+            <div class="category-icon">🏎️</div>
+
+            <h3>Convertible</h3>
+
+            <p>
+                Stylish open-top cars
+            </p>
+
+        </div>
+
+        <div
+            class="category-card"
+            onclick="showModels('premium')">
+
+            <div class="category-icon">👑</div>
+
+            <h3>Premium Cars</h3>
+
+            <p>
+                Exclusive luxury cars with enhanced accident and passenger protection
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAR MODELS -->
+
+<section id="modelsSection">
+
+    <h2 id="modelTitle">
+        Available Cars
+    </h2>
+
+    <div
+        class="models-container"
+        id="modelsContainer">
+    </div>
+
+</section>
+
+<!-- ADDED: CAR COMPARISON (USES THE SAME ORIGINAL CAR DATA AND IMAGES) -->
+<section id="compareSection" style="display:none;">
+  <h2>Compare Your Selected Cars</h2>
+  <div class="compare-box">
+    <p>Select up to three cars from the original car cards to compare their category and daily rental prices.</p>
+    <div class="compare-table-wrap" id="compareResults"></div>
+    <button class="secondary-btn" onclick="clearComparison()">Clear comparison</button>
+  </div>
+</section>
+
+
+<!-- BOOKING -->
+
+<section id="bookingSection">
+
+    <h2>Book Your Car</h2>
+
+    <div class="form-box">
+
+        <div class="booking-summary">
+
+            <strong>Selected Car:</strong>
+            <span id="selectedCar"></span>
+
+            <br>
+
+            <strong>Price:</strong>
+            ₹<span id="selectedPrice"></span> / day
+
+            <br>
+
+            <strong>Rental Total:</strong>
+            ₹<span id="rentalTotal">0</span>
+
+            <br>
+
+            <strong>Delivery Charge:</strong>
+            ₹<span id="deliveryTotal">0</span>
+
+            <br>
+
+            <strong>Grand Total:</strong>
+            ₹<span id="totalPrice">0</span>
+
+        </div>
+
+
+        <!-- CUSTOMER DETAILS -->
+        <div class="form-group">
+            <label>Customer Full Name</label>
+            <input type="text" id="customerName" autocomplete="name" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="customerPhone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number">
+        </div>
+
+        <!-- DATES -->
+
+        <div class="form-group">
+
+            <label>
+                From Date
+            </label>
+
+            <input
+                type="date"
+                id="fromDate">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                To Date
+            </label>
+
+            <input
+                type="date"
+                id="toDate">
+
+        </div>
+
+
+        <!-- DELIVERY -->
+
+        <div class="delivery-box">
+
+            <div class="form-group">
+
+                <label>
+                    🚚 Car Delivery Option
+                </label>
+
+                <select
+                    id="deliveryOption"
+                    onchange="toggleDelivery()">
+
+                    <option value="pickup">
+                        🏢 Pick up from Rental Office
+                    </option>
+
+                    <option value="delivery">
+                        🏠 Home Delivery (+₹500)
+                    </option>
+
+                </select>
+
+            </div>
+
+            <p class="delivery-charge">
+                Home delivery charge: ₹500
+            </p>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div
+            class="form-group"
+            id="addressGroup"
+            style="display:none;">
+
+            <label>
+                📍 Home Delivery Address
+            </label>
+
+            <textarea
+                id="deliveryAddress"
+                rows="4"
+                placeholder="Enter your complete home address">
+            </textarea>
+
+        </div>
+
+
+        <div class="safe-check">
+            <input type="checkbox" id="safetyAgree">
+            <label for="safetyAgree" style="font-weight:normal;margin:0;">
+              I have read the Driver & Passenger Safety Policy and agree to follow the rental conditions.
+            </label>
+        </div>
+
+        <button
+            class="submit-btn"
+            onclick="submitBooking()">
+
+            Continue to Payment
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section id="paymentSection">
+
+    <h2>Payment</h2>
+
+    <div class="form-box">
+        <div class="booking-summary">
+            <strong>Car:</strong> <span id="paymentCar"></span><br>
+            <strong>Delivery:</strong> <span id="paymentDelivery"></span><br>
+            <strong>Address:</strong> <span id="paymentAddress"></span><br>
+            <strong>Total Amount:</strong> ₹<span id="paymentAmount"></span>
+        </div>
+        <div class="notice">
+          <strong>Demo website:</strong> This page does not process payments.
+          Do not enter or store card numbers, CVV, UPI PINs or banking passwords here.
+          For real payments, connect a trusted payment gateway using its secure checkout.
+        </div>
+        <br>
+        <button class="submit-btn" onclick="makePayment()">Submit Demo Booking Request</button>
+    </div>
+
+</section>
+
+
+<!-- SUCCESS -->
+
+<section id="successSection">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h2>
+            Booking Successful!
+        </h2>
+
+
+        <div
+            class="success-details"
+            id="successMessage">
+        </div>
+
+        <br>
+
+        <button
+            class="rent-btn"
+            onclick="location.href='#home'">
+
+            Back to Home
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PREMIUM CARS ACCIDENT & PASSENGER PROTECTION POLICY -->
+<section id="medicalProtection">
+  <h2>🛡️ Premium Cars Accident & Passenger Protection</h2>
+  <div class="medical-box">
+    <p class="medical-highlight"><strong>Why are Premium Cars' rental prices higher?</strong> The doubled premium rental price helps fund enhanced protection and support. If an accident occurs during an authorised rental, Premium Cars will coordinate the claim and bear eligible costs for repairing the rental vehicle. The company will also assist passengers and handle eligible accident-related medical and emergency expenses covered by the active passenger insurance or the company's written protection plan.</p>
+
+    <h3>What the company takes responsibility for</h3>
+    <ul>
+      <li>Eligible repair costs for the rented vehicle after a covered accident.</li>
+      <li>Assistance with passenger injuries, hospital admission, ambulance arrangements and accident-related medical claims.</li>
+      <li>Eligible passenger medical expenses covered by the active insurance policy or written company protection plan.</li>
+      <li>Coordinating with insurers, approved hospitals and repair centres, and guiding the customer through the claim process.</li>
+    </ul>
+
+    <h3>What passengers should do after an accident</h3>
+    <ol>
+      <li>Prioritise safety and call emergency services immediately if anyone is injured or in danger.</li>
+      <li>Contact Premium Cars as soon as it is safe.</li>
+      <li>Keep medical bills, prescriptions, hospital records and incident documents.</li>
+      <li>Premium Cars will assist with the insurer and eligible expense process.</li>
+    </ol>
+
+    <h3>Important coverage conditions</h3>
+    <ul>
+      <li>Passenger medical expenses and vehicle repairs are handled according to the active insurance policy and the written rental protection agreement.</li>
+      <li>Unauthorised drivers, driving under the influence, invalid licences, racing, deliberate damage and unlawful use may be excluded.</li>
+      <li>Any limits, exclusions, deductibles and claim requirements must be disclosed to the customer before booking.</li>
+      <li>Third-party injury or property claims are handled according to applicable law and the relevant insurance policy.</li>
+    </ul>
+
+    <div class="medical-warning"><strong>Customer transparency:</strong> This is proposed policy wording for a website/demo. Do not promise unlimited payment for every accident or every passenger problem unless the company has arranged insurance and funding that genuinely provide it. Before launch, confirm motor insurance, passenger/occupant cover, limits, exclusions, deductibles and claim procedures in writing, and have the rental agreement reviewed by a qualified local legal and insurance professional.</div>
+  </div>
+</section>
+
+<!-- DRIVER AND PASSENGER SAFETY POLICY -->
+<section id="safetySection">
+  <h2>Driver & Passenger Safety Policy</h2>
+  <div class="policy-box">
+    <p class="notice"><strong>Purpose:</strong> Protect drivers, passengers, vehicles and the rental business. This is a general website policy template, not a substitute for local law, insurer conditions or legal advice.</p>
+    <h3>Before the trip</h3>
+    <ul>
+      <li>The driver must hold a valid driving licence for the vehicle class and meet applicable legal and insurance requirements. Only approved drivers may drive.</li>
+      <li>Do not drive if affected by alcohol, recreational drugs, impairing medicines, severe tiredness or any condition that makes driving unsafe. No medical diagnosis needs to be collected by this website.</li>
+      <li>Check tyres, lights, brakes, mirrors, seat belts, fuel/charge level and visible warning indicators before handover. Record existing damage with dated photos and a signed checklist.</li>
+      <li>Confirm the number of passengers does not exceed the vehicle's permitted seating capacity. Everyone must use a seat belt; use suitable child restraints where required.</li>
+    </ul>
+    <h3>During the trip</h3>
+    <ul>
+      <li>Follow traffic rules, speed limits and road signs. Never use a handheld phone while driving.</li>
+      <li>Take rest breaks when tired. Stop somewhere safe if weather, visibility, road conditions or fatigue make continuing unsafe.</li>
+      <li>Do not use the vehicle for racing, towing beyond its approved limit, illegal activity or any unauthorised commercial use.</li>
+      <li>Do not smoke or allow unauthorised drivers to use the vehicle. Follow the written fuel, mileage, route and cleanliness terms agreed at booking.</li>
+    </ul>
+    <h3>Accident, breakdown or emergency</h3>
+    <ul>
+      <li>Prioritise people and move to a safe place if possible. Contact local emergency services when anyone is injured or in immediate danger.</li>
+      <li>Notify the rental owner promptly and follow the insurer's claim/reporting process. Do not admit liability or promise payment on behalf of the insurer.</li>
+      <li>Record the time, location, other party details and relevant photos only when safe and lawful. Do not leave the scene where the law requires you to remain.</li>
+    </ul>
+    <h3>Handover and return</h3>
+    <ul>
+      <li>Both parties should check and record vehicle condition, odometer, fuel/charge level, accessories and return time at pickup and return.</li>
+      <li>Explain any deposit, excess/deductible, late-return, cleaning, damage and cancellation charges clearly in writing before the customer agrees.</li>
+      <li>Collect only information needed for the rental and protect customer identity and contact details. Never store card CVV, UPI PIN or banking passwords.</li>
+    </ul>
+    <div class="safe-check"><input type="checkbox" id="policyRead"><label for="policyRead" style="font-weight:normal;margin:0;">I have read this general safety policy.</label></div>
+  </div>
+</section>
+
+<!-- OWNER TIPS: PROTECT MARGIN AND BUILD CUSTOMER TRUST -->
+<section id="businessTips">
+  <h2>Owner Tips: Protect Your Business</h2>
+  <div class="tips-box">
+    <h3>1. Set a price that covers real costs</h3>
+    <p>Before publishing a daily price, include maintenance, tyres, cleaning, insurance, depreciation, finance/lease costs, taxes, platform/payment fees and a reasonable profit target. Do not copy competitor prices without checking your own costs.</p>
+    <h3>2. Use a minimum-price rule</h3>
+    <p><strong>Planning formula:</strong> (variable cost per rental day + allocated fixed cost per booked day + depreciation per day + target profit per day) ÷ (1 − percentage-based fees/taxes). Confirm tax treatment with a qualified local accountant.</p>
+    <h3>3. Separate money correctly</h3>
+    <ul>
+      <li>Show rental charges, delivery fees, taxes and refundable security deposits separately.</li>
+      <li>Do not count a refundable deposit as income or profit. Return it according to the signed agreement and documented deductions.</li>
+      <li>Keep a cash reserve for repairs, insurance excess/deductibles, downtime and unexpected expenses.</li>
+    </ul>
+    <h3>4. Prevent avoidable disputes</h3>
+    <ul>
+      <li>Use a signed rental agreement, identity/licence verification process, authorised-driver list and clear cancellation/late-return terms.</li>
+      <li>Take time-stamped pickup and return photos, record mileage and fuel, and give the customer a copy of the inspection report.</li>
+      <li>Confirm vehicle availability manually until the website is connected to a secure shared database.</li>
+    </ul>
+    <h3>5. Build repeat business</h3>
+    <p>Use genuine vehicle photos, transparent pricing, prompt support and fair loyalty offers. Ask for customer feedback after each completed rental. Never promise a vehicle or a price until availability and terms are confirmed.</p>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        ©️ 2026 Premium Cars |
+        All Rights Reserved
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   CAR DATA + PRICES
+========================================= */
+
+const carsData = {
+
+    sedan: [
+
+        {
+            name: "Honda City",
+            price: 2500,
+            wiki: "Honda City"
+        },
+
+        {
+            name: "Hyundai Verna",
+            price: 2800,
+            wiki: "Hyundai Verna"
+        },
+
+        {
+            name: "Skoda Slavia",
+            price: 3000,
+            wiki: "Škoda Slavia"
+        },
+
+        {
+            name: "Skoda Octavia",
+            price: 4000,
+            wiki: "Škoda Octavia"
+        },
+
+        {
+            name: "BMW M2",
+            price: 7500,
+            wiki: "BMW M2"
+        },
+
+        {
+            name: "Volkswagen Vento",
+            price: 2400,
+            wiki: "Volkswagen Vento"
+        }
+
+    ],
+
+
+    suv: [
+
+        {
+            name: "Mahindra XUV700",
+            price: 3500,
+            wiki: "Mahindra XUV700"
+        },
+
+        {
+            name: "BMW X7",
+            price: 12000,
+            wiki: "BMW X7"
+        },
+
+        {
+            name: "Toyota Fortuner",
+            price: 5000,
+            wiki: "Toyota Fortuner"
+        },
+
+        {
+            name: "Toyota Land Cruiser",
+            price: 15000,
+            wiki: "Toyota Land Cruiser"
+        },
+
+        {
+            name: "MG Gloster",
+            price: 5500,
+            wiki: "MG Gloster"
+        },
+
+        {
+            name: "Mercedes-Benz GLS",
+            price: 14000,
+            wiki: "Mercedes-Benz GLS-Class"
+        }
+
+    ],
+
+
+    convertible: [
+
+        {
+            name: "BMW Z4",
+            price: 10000,
+            wiki: "BMW Z4"
+        },
+
+        {
+            name: "Audi A5 Cabriolet",
+            price: 9000,
+            wiki: "Audi A5"
+        },
+
+        {
+            name: "Mercedes-Benz C-Class Cabriolet",
+            price: 11000,
+            wiki: "Mercedes-Benz C-Class"
+        },
+
+        {
+            name: "MINI Cooper Convertible",
+            price: 6500,
+            wiki: "Mini Convertible"
+        },
+
+        {
+            name: "Jaguar F-Type",
+            price: 13000,
+            wiki: "Jaguar F-Type"
+        },
+
+        {
+            name: "Porsche 718 Boxster",
+            price: 15000,
+            wiki: "Porsche Boxster"
+        }
+
+    ],
+
+    premium: [
+        { name: "Mercedes-Benz S-Class", price: 30000, wiki: "Mercedes-Benz S-Class" },
+        { name: "BMW 7 Series", price: 28000, wiki: "BMW 7 Series" },
+        { name: "Audi A8 L", price: 26000, wiki: "Audi A8" },
+        { name: "Range Rover Autobiography", price: 36000, wiki: "Range Rover" },
+        { name: "Lexus LX", price: 32000, wiki: "Lexus LX" },
+        { name: "Porsche Panamera", price: 34000, wiki: "Porsche Panamera" }
+    ]
+
+};
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let selectedCarData = null;
+
+const deliveryCharge = 500;
+const comparisonNames = [];
+let currentBooking = null;
+const BOOKINGS_KEY = "drivenow_original_bookings_v2";
+
+
+/* =========================================
+   GET CAR IMAGE
+========================================= */
+
+async function getCarImage(wikiName) {
+
+    try {
+
+        const url =
+            "https://en.wikipedia.org/api/rest_v1/page/summary/"
+            + encodeURIComponent(wikiName);
+
+        const response =
+            await fetch(url);
+
+        const data =
+            await response.json();
+
+        if (data.thumbnail) {
+
+            return data.thumbnail.source;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Image error:",
+            error
+        );
+
+    }
+
+    return "https://via.placeholder.com/800x500?text="
+        + encodeURIComponent(wikiName);
+
+}
+
+
+/* =========================================
+   SHOW CAR MODELS
+========================================= */
+
+async function showModels(category) {
+
+    const section =
+        document.getElementById(
+            "modelsSection"
+        );
+
+    const container =
+        document.getElementById(
+            "modelsContainer"
+        );
+
+    const title =
+        document.getElementById(
+            "modelTitle"
+        );
+
+    container.innerHTML = "";
+
+    section.style.display = "block";
+
+    title.innerText =
+        category.charAt(0).toUpperCase()
+        + category.slice(1)
+        + " Cars";
+
+
+    for (const car of carsData[category]) {
+
+        const image =
+            await getCarImage(car.wiki);
+
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "car-card";
+
+
+        card.innerHTML = `
+
+            <img
+                src="${image}"
+                alt="${car.name}">
+
+            <div class="car-info">
+
+                <h3>
+                    ${car.name}
+                </h3>
+
+                <div class="price">
+
+                    ₹${car.price.toLocaleString("en-IN")}
+                    / day
+
+                </div>
+
+                <button
+                    class="rent-btn"
+                    onclick="selectCar(
+                        '${car.name}',
+                        ${car.price}
+                    )">
+
+                    Rent This Car
+
+                </button>
+
+                <button class="compare-btn" onclick="toggleCompare('${car.name}')">
+                    ${comparisonNames.includes(car.name) ? "Remove Compare" : "Compare"}
+                </button>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    }
+
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   CAR COMPARISON - ORIGINAL MODELS/IMAGES UNCHANGED
+========================================= */
+function findCarByName(name) {
+    for (const category of Object.keys(carsData)) {
+        const found = carsData[category].find(car => car.name === name);
+        if (found) return { ...found, category };
+    }
+    return null;
+}
+
+function toggleCompare(name) {
+    const index = comparisonNames.indexOf(name);
+    if (index >= 0) comparisonNames.splice(index, 1);
+    else {
+        if (comparisonNames.length >= 3) {
+            alert("Compare up to 3 cars at a time.");
+            return;
+        }
+        comparisonNames.push(name);
+    }
+    renderComparison();
+    const category = Object.keys(carsData).find(key => carsData[key].some(car => car.name === name));
+    if (category) showModels(category);
+}
+
+function renderComparison() {
+    const section = document.getElementById("compareSection");
+    const target = document.getElementById("compareResults");
+    section.style.display = comparisonNames.length ? "block" : "none";
+    if (!comparisonNames.length) { target.innerHTML = ""; return; }
+    const cars = comparisonNames.map(findCarByName).filter(Boolean);
+    target.innerHTML = `<table class="compare-table">
+      <thead><tr><th>Feature</th>${cars.map(car => `<th>${car.name}</th>`).join("")}</tr></thead>
+      <tbody>
+        <tr><th>Category</th>${cars.map(car => `<td>${car.category}</td>`).join("")}</tr>
+        <tr><th>Daily rental price</th>${cars.map(car => `<td>₹${car.price.toLocaleString("en-IN")}</td>`).join("")}</tr>
+        <tr><th>7-day estimate</th>${cars.map(car => `<td>₹${(car.price * 7).toLocaleString("en-IN")}</td>`).join("")}</tr>
+      </tbody></table>`;
+}
+
+function clearComparison() {
+    comparisonNames.length = 0;
+    renderComparison();
+    const title = document.getElementById("modelTitle").innerText.toLowerCase();
+    const category = title.includes("premium") ? "premium" :
+      title.includes("suv") ? "suv" :
+      title.includes("convertible") ? "convertible" : "sedan";
+    showModels(category);
+}
+
+function getSavedBookings() {
+    try { return JSON.parse(localStorage.getItem(BOOKINGS_KEY) || "[]"); }
+    catch (error) { return []; }
+}
+
+function datesOverlap(carName, from, to) {
+    return getSavedBookings().some(booking =>
+      booking.carName === carName && booking.status !== "Cancelled" &&
+      from < booking.toDate && to > booking.fromDate
+    );
+}
+
+/* =========================================
+   SELECT CAR
+========================================= */
+
+function selectCar(name, price) {
+
+    selectedCarData = {
+
+        name: name,
+        price: price
+
+    };
+
+
+    document.getElementById(
+        "selectedCar"
+    ).innerText = name;
+
+
+    document.getElementById(
+        "selectedPrice"
+    ).innerText =
+        price.toLocaleString("en-IN");
+
+
+    document.getElementById(
+        "rentalTotal"
+    ).innerText =
+        price.toLocaleString("en-IN");
+
+
+    document.getElementById(
+        "deliveryTotal"
+    ).innerText = "0";
+
+
+    document.getElementById(
+        "totalPrice"
+    ).innerText =
+        price.toLocaleString("en-IN");
+
+
+    document.getElementById(
+        "bookingSection"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "bookingSection"
+    ).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   HOME DELIVERY TOGGLE
+========================================= */
+
+function toggleDelivery() {
+
+    const option =
+        document.getElementById(
+            "deliveryOption"
+        ).value;
+
+
+    const addressGroup =
+        document.getElementById(
+            "addressGroup"
+        );
+
+
+    if (option === "delivery") {
+
+        addressGroup.style.display =
+            "block";
+
+    }
+
+    else {
+
+        addressGroup.style.display =
+            "none";
+
+        document.getElementById(
+            "deliveryAddress"
+        ).value = "";
+
+    }
+
+
+    calculateTotal();
+
+}
+
+
+/* =========================================
+   CALCULATE TOTAL
+========================================= */
+
+function calculateTotal() {
+
+    if (!selectedCarData) {
+        return;
+    }
+
+
+    const from =
+        document.getElementById(
+            "fromDate"
+        ).value;
+
+
+    const to =
+        document.getElementById(
+            "toDate"
+        ).value;
+
+
+    if (!from || !to) {
+        return;
+    }
+
+
+    const start = Date.parse(from + "T00:00:00");
+    const end = Date.parse(to + "T00:00:00");
+    const days = Math.round((end - start) / 86400000);
+
+
+    if (days <= 0) {
+        return;
+    }
+
+
+    const rentalTotal =
+        days *
+        selectedCarData.price;
+
+
+    const option =
+        document.getElementById(
+            "deliveryOption"
+        ).value;
+
+
+    let delivery = 0;
+
+
+    if (option === "delivery") {
+
+        delivery = deliveryCharge;
+
+    }
+
+
+    const total =
+        rentalTotal + delivery;
+
+
+    document.getElementById(
+        "rentalTotal"
+    ).innerText =
+        rentalTotal.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "deliveryTotal"
+    ).innerText =
+        delivery.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "totalPrice"
+    ).innerText =
+        total.toLocaleString(
+            "en-IN"
+        );
+
+}
+
+
+/* =========================================
+   DATE EVENTS
+========================================= */
+
+document.getElementById(
+    "fromDate"
+).addEventListener(
+    "change",
+    calculateTotal
+);
+
+
+document.getElementById(
+    "toDate"
+).addEventListener(
+    "change",
+    calculateTotal
+);
+
+
+/* =========================================
+   BOOKING
+========================================= */
+
+function submitBooking() {
+
+    if (!selectedCarData) {
+
+        alert(
+            "Please select a car first."
+        );
+
+        return;
+
+    }
+
+
+    const from =
+        document.getElementById(
+            "fromDate"
+        ).value;
+
+
+    const to =
+        document.getElementById(
+            "toDate"
+        ).value;
+
+
+    const option =
+        document.getElementById(
+            "deliveryOption"
+        ).value;
+
+
+    const address =
+        document.getElementById(
+            "deliveryAddress"
+        ).value.trim();
+
+    const customerName = document.getElementById("customerName").value.trim();
+    const customerPhone = document.getElementById("customerPhone").value.trim();
+
+    if (customerName.length < 2) { alert("Please enter your full name."); return; }
+    if (!/^[6-9]\d{9}$/.test(customerPhone)) { alert("Enter a valid 10-digit Indian mobile number."); return; }
+    if (!document.getElementById("safetyAgree").checked) { alert("Please read and accept the Driver & Passenger Safety Policy."); return; }
+    const today = new Date(); today.setHours(0,0,0,0);
+    if (Date.parse(from + "T00:00:00") < today.getTime()) { alert("Pickup date cannot be in the past."); return; }
+    if (datesOverlap(selectedCarData.name, from, to)) {
+        alert("This car already has a saved booking request for those dates. Please choose other dates or contact the owner.");
+        return;
+    }
+
+
+    if (!from || !to) {
+
+        alert(
+            "Please select both dates."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        new Date(to) <=
+        new Date(from)
+    ) {
+
+        alert(
+            "To Date must be after From Date."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        option === "delivery" &&
+        address === ""
+    ) {
+
+        alert(
+            "Please enter your home delivery address."
+        );
+
+        return;
+
+    }
+
+
+    const days = Math.round(
+        (Date.parse(to + "T00:00:00") - Date.parse(from + "T00:00:00")) / 86400000
+    );
+
+
+    const rentalTotal =
+        days *
+        selectedCarData.price;
+
+
+    const delivery =
+        option === "delivery"
+            ? deliveryCharge
+            : 0;
+
+
+    const total =
+        rentalTotal + delivery;
+
+    currentBooking = {
+        bookingId: "DN" + Date.now(),
+        carName: selectedCarData.name,
+        customerName,
+        customerPhone,
+        fromDate: from,
+        toDate: to,
+        days,
+        rentalTotal,
+        delivery,
+        total,
+        deliveryAddress: option === "delivery" ? address : "Office pickup",
+        status: "Pending owner confirmation",
+        createdAt: new Date().toISOString()
+    };
+
+    /* Payment information */
+
+    document.getElementById(
+        "paymentCar"
+    ).innerText =
+        selectedCarData.name;
+
+
+    document.getElementById(
+        "paymentDelivery"
+    ).innerText =
+        option === "delivery"
+            ? "🏠 Home Delivery (+₹500)"
+            : "🏢 Rental Office Pickup";
+
+
+    document.getElementById(
+        "paymentAddress"
+    ).innerText =
+        option === "delivery"
+            ? address
+            : "Not Required";
+
+
+    document.getElementById(
+        "paymentAmount"
+    ).innerText =
+        total.toLocaleString(
+            "en-IN"
+        );
+
+
+    document.getElementById(
+        "paymentSection"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "paymentSection"
+    ).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   PAYMENT
+========================================= */
+
+function makePayment() {
+    if (!currentBooking) {
+        alert("Please complete the booking form first.");
+        return;
+    }
+
+    const bookings = getSavedBookings();
+    bookings.push(currentBooking);
+    localStorage.setItem(BOOKINGS_KEY, JSON.stringify(bookings));
+
+    document.getElementById("successMessage").innerHTML = `
+      <strong>Booking request received.</strong><br><br>
+      <strong>Request ID:</strong> ${currentBooking.bookingId}<br>
+      <strong>Customer:</strong> ${currentBooking.customerName}<br>
+      <strong>Car:</strong> ${currentBooking.carName}<br>
+      <strong>Rental Period:</strong> ${currentBooking.fromDate} to ${currentBooking.toDate}<br>
+      <strong>Rental:</strong> ₹${currentBooking.rentalTotal.toLocaleString("en-IN")}<br>
+      <strong>Delivery:</strong> ₹${currentBooking.delivery.toLocaleString("en-IN")}<br>
+      <strong>Total estimate:</strong> ₹${currentBooking.total.toLocaleString("en-IN")}<br><br>
+      <strong>Status:</strong> Pending owner confirmation.<br>
+      No payment was processed. The owner must verify availability, documents and final terms.
+    `;
+
+    document.getElementById("successSection").style.display = "block";
+    document.getElementById("successSection").scrollIntoView({ behavior: "smooth" });
+    currentBooking = null;
+}
+
+// Prevent past pickup dates in the booking form.
+const pickupDateInput = document.getElementById("fromDate");
+const returnDateInput = document.getElementById("toDate");
+const todayLocal = new Date();
+todayLocal.setMinutes(todayLocal.getMinutes() - todayLocal.getTimezoneOffset());
+const todayString = todayLocal.toISOString().slice(0, 10);
+pickupDateInput.min = todayString;
+returnDateInput.min = todayString;
+pickupDateInput.addEventListener("change", () => {
+    returnDateInput.min = pickupDateInput.value || todayString;
+});
+
+</script>
+
+</body>
+</html>
